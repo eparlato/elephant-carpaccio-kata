@@ -20,10 +20,10 @@
 
 * output
 
-price: $0
-tax rate: $0:
-discount: $0
-total: $0
+  * price: $0
+  * tax rate: $0
+  * discount: $0
+  * total: $0
 
 ## slice 1
 
@@ -33,12 +33,12 @@ total: $0
 
 * output
 
-price: $0
-tax rate: $0:
-discount: $0
-total: $5
+  * price: $0
+  * tax rate: $0
+  * discount: $0
+  * total: $5
 
-## slice 2
+## slice 2 - 2 items, total with no taxes nor discount
 
 * items: 2
 * price: $7
@@ -46,12 +46,25 @@ total: $5
 
 * output
 
-price: $0
-tax rate: $0:
-discount: $0
-total: $21
+  * price: $14
+  * tax rate: $0
+  * discount: $0
+  * total: $14
 
-## slice 3
+## slice 3 - multple items, total with no taxes nor discount
+
+* items: 5
+* price: $4
+* state: ""
+
+* output
+
+  * price: $20
+  * tax rate: $0
+  * discount: $0
+  * total: $20
+
+## slice 4 - tax rate is always 6.85% (UT)
 
 * items: 2
 * price: $1000
@@ -59,12 +72,12 @@ total: $21
 
 * output
 
-price: $2000
-tax rate: $137
-discount: $0
-total: $2137
+  * price: $2000
+  * tax rate: $137 <-- hard coded value
+  * discount: $0
+  * total: $2137
 
-## slice 4
+## slice 5 - when we pass the state code NV, we get the related tax rate
 
 * items: 2
 * price: $1000
@@ -72,12 +85,12 @@ total: $2137
 
 * output
 
-price: $2000
-tax rate: $160
-discount: $0
-total: $2160
+  * price: $2000
+  * tax rate: $160
+  * discount: $0
+  * total: $2160
 
-## slice 5 - five states
+## slice 6 - five states
 
 * items: 2
 * price: $2000
@@ -85,12 +98,12 @@ total: $2160
 
 * output
 
-price: $4000
-tax rate: $330
-discount: $0
-total: $4330
+  * price: $4000
+  * tax rate: $330
+  * discount: $0
+  * total: $4330
 
-## slice 6
+## slice 7 - we always have $30 of discount
 
 * items: 2
 * price: $500
@@ -98,20 +111,46 @@ total: $4330
 
 * output
 
-price: $1000
-tax rate: $82,5
-discount: $30 <-- hard coded value
-total: $1052,5
+  * price: $1000
+  * tax rate: $82,5
+  * discount: $30 <-- hard coded value
+  * total: $1052.5
 
-## slice 7
+## slice 8 - when the price is >= $1000 we have 3% of discount
 
-* items: 5
-* price: $1000
+* items: 2
+* price: $550
 * state: TX
 
 * output
 
-price: $5000
-tax: 312,5
-discount: 250
-total: $5062,5
+  * price: $1100
+  * tax: $68,75
+  * discount: $33
+  * total: $1135.75
+
+## slice 9 - when the price is >= $5000, discount is not 3%, but 5%
+
+* items: 5
+* price: $1050
+* state: AL
+
+* output
+
+  * price: $5250
+  * tax: $210
+  * discount: $262.5
+  * total: $5197.5
+
+## slice 10 - 5 states 5 discounts
+
+* items: 10
+* price: $60312
+* state: NV
+
+* output
+
+  * price: $603120
+  * tax: $48249.6
+  * discount: $90468
+  * total: $560901.6
