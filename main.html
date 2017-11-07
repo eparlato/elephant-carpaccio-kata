@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Elephant Carpaccio Kata</title>
+    </head>
+
+    <body>
+        <h1>Buy your products</h1>
+
+        <fieldset>
+
+            <div>
+                <label for="tot_items">Tot items</label>
+                <input id="tot_items" type="text">
+            </div>
+
+            <div>
+                <label for="price_per_item">Price per item</label>
+                <input id="price_per_item">
+            </div>
+
+            <div>
+                <label for="state_code">2-letter state code</label>
+                <input id="state_code">
+            </div>
+
+            <div>
+                <input id="button_calculate" type="button" value="Total price">
+                <input id="output_total_price" type="text" readonly>
+            </div>
+        </fieldset>
+
+        <script type="text/javascript" src="src/js/price_calculator.js"></script>
+        <script type="text/javascript" src="src/js/product.js"></script>
+        <script type="text/javascript" src="src/js/main.js"></script>
+    </body>
+</html>
