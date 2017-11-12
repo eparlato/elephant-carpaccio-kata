@@ -8,7 +8,7 @@
     <body>
         <h1>Buy your products</h1>
 
-        <fieldset>
+        <fieldset id="products_form">
 
             <div>
                 <label for="tot_items">Tot items</label>
@@ -17,17 +17,17 @@
 
             <div>
                 <label for="price_per_item">Price per item</label>
-                <input id="price_per_item">
+                <input id="price_per_item" type="text">
             </div>
 
             <div>
                 <label for="state_code">2-letter state code</label>
-                <input id="state_code">
+                <input id="state_code" type="text">
             </div>
 
             <div>
                 <input id="button_calculate" type="button" value="Total price">
-                <input id="output_total_price" type="text" readonly>
+                <span id="output_total_price"/>
             </div>
         </fieldset>
 
