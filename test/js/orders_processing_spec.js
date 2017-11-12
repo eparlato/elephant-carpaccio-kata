@@ -1,5 +1,6 @@
 describe('Orders processing', function () {
-    
+    var EMPTY_STATE_CODE = '';
+
     var priceCalculator = new PriceCalculator();
     var taxCalculator = new TaxCalculator();
     var discountCalculator = new DiscountCalculator();
@@ -12,7 +13,7 @@ describe('Orders processing', function () {
         input = {
             tot_items: 0,
             price_per_item: 0,
-            state_code: ""
+            state_code: EMPTY_STATE_CODE
         };
 
         total_price = orderProcessor.process(input);
@@ -25,7 +26,7 @@ describe('Orders processing', function () {
         input = {
             tot_items: 1,
             price_per_item: 5,
-            state_code: ""
+            state_code: EMPTY_STATE_CODE
         };
 
         total_price = orderProcessor.process(input);
@@ -37,11 +38,24 @@ describe('Orders processing', function () {
         input = {
             tot_items: 2,
             price_per_item: 7,
-            state_code: ""
+            state_code: EMPTY_STATE_CODE
         };
 
         total_price = orderProcessor.process(input);
         
         expect(total_price).toEqual('$14');
     });
+
+    it('multiple items, total with no taxes nor discount - slice 3', function () {
+        input = {
+            tot_items: 5,
+            price_per_item: 4,
+            state_code: EMPTY_STATE_CODE
+        };
+
+        total_price = orderProcessor.process(input);
+
+        expect(total_price).toEqual('$20');
+    });
+
 });

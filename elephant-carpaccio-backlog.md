@@ -51,7 +51,7 @@
   * discount: $0
   * total: $14
 
-## slice 3 - multple items, total with no taxes nor discount
+## slice 3 - multiple items, total with no taxes nor discount
 
 * items: 5
 * price: $4
@@ -154,3 +154,9 @@
   * tax: $48249.6
   * discount: $90468
   * total: $560901.6
+
+  ## NOTES AND TODO
+
+  * what if a parameter is missing (ex. tot_items === undefined)?
+  * test for slice 3 adds no real value;
+  * slice 4 should simply decrease $137 as tax value from total price. Another slice should make the equation 6.85% == $137
