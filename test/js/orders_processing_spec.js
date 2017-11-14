@@ -58,4 +58,19 @@ describe('Orders processing', function () {
         expect(total_price).toEqual('$20');
     });
 
+    it('tax rate is always 6.85% if state_code is not empty - slice 4', function () {
+
+        input = {
+            tot_items: 2,
+            price_per_item: 1000,
+            state_code: EMPTY_STATE_CODE
+        };
+
+        spyOn(taxCalculator, 'calculate_tax').and.returnValue(137);
+
+        total_price = orderProcessor.process(input);
+
+        expect(total_price).toEqual('$2137');
+    });
+
 });
