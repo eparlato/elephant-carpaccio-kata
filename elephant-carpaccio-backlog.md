@@ -164,3 +164,4 @@
   * a slice is not always equal to a test. In a slice I implement a certain behaviour, I could need more tests to do it
    For example I want to introduce a fixed tax value of 137 whatever the state code is, but I can write my test saying that I get 137 ony if the state code is UT. That is because I know that I will get different tax values from different state codes.
      * or maybe I just need to think to a better slice. I'm not sure now, I probably need more feedback.
+  * after slice 5 another slice should hae the same state_code (NV) and the same tot_items (2) but different price_per item.

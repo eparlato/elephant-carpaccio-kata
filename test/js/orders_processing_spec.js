@@ -58,7 +58,7 @@ describe('Orders processing', function () {
         expect(total_price).toEqual('$20');
     });
 
-    it('tax rate is always 6.85% if state_code is UT - slice 4', function () {
+    it('tax value is 137 (6.85%) if state_code is UT - slice 4', function () {
 
         input = {
             tot_items: 2,
@@ -69,6 +69,19 @@ describe('Orders processing', function () {
         total_price = orderProcessor.process(input);
 
         expect(total_price).toEqual('$2137');
+    });
+
+    it('tax rate is 160 if state code is NV - slice 5', function () {
+
+        input = {
+            tot_items: 2,
+            price_per_item: 1000,
+            state_code: 'NV'
+        };
+
+        total_price = orderProcessor.process(input);
+
+        expect(total_price).toEqual('$2160');
     });
 
 });
