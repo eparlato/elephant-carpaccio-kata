@@ -112,9 +112,9 @@
 * output
 
   * price: $1000
-  * tax rate: $82,5
   * discount: $30 <-- hard coded value
-  * total: $1052.5
+  * tax rate: $80,025
+  * total: $1050,025
 
 ## slice 8 - when the price is >= $1000 we have 3% of discount
 
@@ -125,9 +125,9 @@
 * output
 
   * price: $1100
-  * tax: $68,75
   * discount: $33
-  * total: $1135.75
+  * tax: $66,6875
+  * total: $1133,6875
 
 ## slice 9 - when the price is >= $5000, discount is not 3%, but 5%
 
@@ -138,9 +138,9 @@
 * output
 
   * price: $5250
-  * tax: $210
   * discount: $262.5
-  * total: $5197.5
+  * tax: $199,5
+  * total: $5187
 
 ## slice 10 - 5 states 5 discounts
 
@@ -151,9 +151,9 @@
 * output
 
   * price: $603120
-  * tax: $48249.6
   * discount: $90468
-  * total: $560901.6
+  * tax: $41012,16
+  * total: $553664,16
 
   ## NOTES AND TODO
 

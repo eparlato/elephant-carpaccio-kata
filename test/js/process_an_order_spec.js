@@ -17,7 +17,7 @@ describe('When I process an order', function () {
         };
 
         total_price = orderProcessor.process(input);
-        
+
         expect(total_price).toEqual('$0');
     });
 
@@ -30,7 +30,7 @@ describe('When I process an order', function () {
         };
 
         total_price = orderProcessor.process(input);
-        
+
         expect(total_price).toEqual('$5');
     });
 
@@ -42,7 +42,7 @@ describe('When I process an order', function () {
         };
 
         total_price = orderProcessor.process(input);
-        
+
         expect(total_price).toEqual('$14');
     });
 
