@@ -1,4 +1,4 @@
-describe('Orders processing', function () {
+describe('When I process an order', function () {
     var EMPTY_STATE_CODE = '';
 
     var priceCalculator = new PriceCalculator();
@@ -8,7 +8,7 @@ describe('Orders processing', function () {
     var orderProcessor = new OrderProcessor(priceCalculator, taxCalculator, discountCalculator);
     var total_price;
 
-    it('zero items - slice 0', function () {
+    it('total price is $0 if there are no items', function () {
 
         input = {
             tot_items: 0,
@@ -21,7 +21,7 @@ describe('Orders processing', function () {
         expect(total_price).toEqual('$0');
     });
 
-    it('1 item with a fixed price - slice 1', function () {
+    it('total price is $5 if I have 1 item whose price is 5 - slice 1', function () {
 
         input = {
             tot_items: 1,
@@ -34,7 +34,7 @@ describe('Orders processing', function () {
         expect(total_price).toEqual('$5');
     });
 
-    it('2 items, total with no taxes nor discount - slice 2', function () {
+    it('total price is $14 if I have 2 items and price_per_item is 7 (no taxes no discount) - slice 2', function () {
         input = {
             tot_items: 2,
             price_per_item: 7,
@@ -46,7 +46,7 @@ describe('Orders processing', function () {
         expect(total_price).toEqual('$14');
     });
 
-    it('multiple items, total with no taxes nor discount - slice 3', function () {
+    it('total price is $20 if I have 5 items and price_per_item is 4 (no taxes no discount) - slice 3', function () {
         input = {
             tot_items: 5,
             price_per_item: 4,
@@ -83,5 +83,4 @@ describe('Orders processing', function () {
 
         expect(total_price).toEqual('$2160');
     });
-
 });
