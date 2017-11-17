@@ -83,4 +83,17 @@ describe('When I process an order', function () {
 
         expect(total_price).toEqual('$2160');
     });
+
+    it('tax rate is 120 if total price is 1500 and the state code is NV', function () {
+
+        input = {
+            tot_items: 3,
+            price_per_item: 500,
+            state_code: 'NV'
+        };
+
+        total_price = orderProcessor.process(input);
+
+        expect(total_price).toEqual('$1620');
+    });
 });
