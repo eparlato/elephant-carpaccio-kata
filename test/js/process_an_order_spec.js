@@ -7,6 +7,7 @@ describe('When I process an order', function () {
 
     beforeEach(function() {
         total_price = 0;
+        input = {};
     });
 
     it('the total price is $0 if there are no items', function () {
@@ -181,7 +182,7 @@ describe('When I process an order', function () {
         expect(total_price).toEqual('$970');
     });
 
-    it('the total price is $1133.6875 if we buy for $1100 in TX (3% discount) - slice 8', function() {
+    it('the total price is $1133.6875 if we buy for $1100 (3% discount) in TX - slice 8', function() {
         orderProcessor = new OrderProcessor(
             new PriceCalculator(), 
             new TaxCalculator(), 
@@ -197,5 +198,23 @@ describe('When I process an order', function () {
         total_price = orderProcessor.process(input);
         
         expect(total_price).toEqual('$1133.6875');
+    });
+
+    it('the total prixce is $5187 if we buy for $5250 (5% discount) in AL - slice 9', function() {
+        orderProcessor = new OrderProcessor(
+            new PriceCalculator(),
+            new TaxCalculator(),
+            new DiscountCalculator()
+        );
+
+        input = {
+            tot_items: 5,
+            price_per_item: 1050,
+            state_code: 'AL'
+        };
+
+        total_price = orderProcessor.process(input);
+
+        expect(total_price).toEqual('$5187');
     });
 });
