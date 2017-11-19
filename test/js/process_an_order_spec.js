@@ -11,8 +11,8 @@ describe('When I process an order', function () {
 
     it('the total price is $0 if there are no items', function () {
         orderProcessor = new OrderProcessor(
-            new PriceCalculator, 
-            new TaxCalculator, 
+            new PriceCalculator(), 
+            new TaxCalculatorNoTaxesStub(), 
             new DiscountCalculatorNoDiscountStub()
         );
 
@@ -29,8 +29,8 @@ describe('When I process an order', function () {
 
     it('the total price is $5 if I have 1 item whose price is 5 - slice 1', function () {
         orderProcessor = new OrderProcessor(
-            new PriceCalculator, 
-            new TaxCalculator, 
+            new PriceCalculator(), 
+            new TaxCalculatorNoTaxesStub(), 
             new DiscountCalculatorNoDiscountStub()
         );
 
@@ -47,8 +47,8 @@ describe('When I process an order', function () {
 
     it('the total price is $14 if I have 2 items and price_per_item is 7 (no taxes no discount) - slice 2', function () {
         orderProcessor = new OrderProcessor(
-            new PriceCalculator, 
-            new TaxCalculator, 
+            new PriceCalculator(), 
+            new TaxCalculatorNoTaxesStub(), 
             new DiscountCalculatorNoDiscountStub()
         );
         
@@ -65,8 +65,8 @@ describe('When I process an order', function () {
 
     it('the total price is $20 if I have 5 items and price_per_item is 4 (no taxes no discount) - slice 3', function () {
         orderProcessor = new OrderProcessor(
-            new PriceCalculator, 
-            new TaxCalculator, 
+            new PriceCalculator(), 
+            new TaxCalculatorNoTaxesStub(), 
             new DiscountCalculatorNoDiscountStub()
         );
         
@@ -83,8 +83,8 @@ describe('When I process an order', function () {
 
     it('the tax value is 137 (6.85%) if state_code is UT - slice 4', function () {
         orderProcessor = new OrderProcessor(
-            new PriceCalculator, 
-            new TaxCalculator, 
+            new PriceCalculator(), 
+            new TaxCalculator(), 
             new DiscountCalculatorNoDiscountStub()
         );
 
@@ -101,8 +101,8 @@ describe('When I process an order', function () {
 
     it('the tax rate is 160 if state code is NV - slice 5', function () {
         orderProcessor = new OrderProcessor(
-            new PriceCalculator, 
-            new TaxCalculator, 
+            new PriceCalculator(), 
+            new TaxCalculator(), 
             new DiscountCalculatorNoDiscountStub()
         );
 
@@ -119,8 +119,8 @@ describe('When I process an order', function () {
 
     it('the tax rate is 120 if total price is 1500 and the state code is NV', function () {
         orderProcessor = new OrderProcessor(
-            new PriceCalculator, 
-            new TaxCalculator, 
+            new PriceCalculator(), 
+            new TaxCalculator(), 
             new DiscountCalculatorNoDiscountStub()
         );
 
@@ -137,8 +137,8 @@ describe('When I process an order', function () {
 
     it('the tax rate is different whether the state code is different - slice 6', function() {
         orderProcessor = new OrderProcessor(
-            new PriceCalculator, 
-            new TaxCalculator, 
+            new PriceCalculator(), 
+            new TaxCalculator(), 
             new DiscountCalculatorNoDiscountStub()
         );
 
@@ -165,8 +165,8 @@ describe('When I process an order', function () {
 
     it('the discount is $30 if we spend $1000 - slice 7', function() {
         orderProcessor = new OrderProcessor(
-            new PriceCalculator, 
-            new TaxCalculator, 
+            new PriceCalculator(), 
+            new TaxCalculator(), 
             new DiscountCalculator()
         );
         
@@ -183,8 +183,8 @@ describe('When I process an order', function () {
 
     it('the total price is $1133.6875 if we buy for $1100 in TX (3% discount) - slice 8', function() {
         orderProcessor = new OrderProcessor(
-            new PriceCalculator, 
-            new TaxCalculator, 
+            new PriceCalculator(), 
+            new TaxCalculator(), 
             new DiscountCalculator()
         );
         
