@@ -200,7 +200,7 @@ describe('When I process an order', function () {
         expect(total_price).toEqual('$1133.6875');
     });
 
-    it('the total prixce is $5187 if we buy for $5250 (5% discount) in AL - slice 9', function() {
+    it('the total price is $5187 if we buy for $5250 (5% discount) in AL - slice 9', function() {
         orderProcessor = new OrderProcessor(
             new PriceCalculator(),
             new TaxCalculator(),
@@ -216,5 +216,23 @@ describe('When I process an order', function () {
         total_price = orderProcessor.process(input);
 
         expect(total_price).toEqual('$5187');
+    });
+
+    it('the total price is $553664.16 if we buy for $603120 (15% discount) in NV - slice 10', function () {
+        orderProcessor = new OrderProcessor(
+            new PriceCalculator(),
+            new TaxCalculator(),
+            new DiscountCalculator()
+        );
+
+        input = {
+            tot_items: 10,
+            price_per_item: 60312,
+            state_code: 'NV'
+        };
+
+        total_price = orderProcessor.process(input);
+
+        expect(total_price).toEqual('$553664.16');
     });
 });
