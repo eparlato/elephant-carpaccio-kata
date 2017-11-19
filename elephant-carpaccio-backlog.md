@@ -64,7 +64,7 @@
   * discount: $0
   * total: $20
 
-## slice 4 - tax rate is always 6.85% (UT) when the state code is not empty
+## slice 4 - tax amount is a fixed value of 137 when state_code is UT
 
 * items: 2
 * price: $1000
@@ -103,7 +103,7 @@
   * discount: $0
   * total: $4330
 
-## slice 7 - we always have $30 of discount
+## slice 7 - if we spend $1000 we have $30 of discount
 
 * items: 2
 * price: $500
@@ -113,8 +113,8 @@
 
   * price: $1000
   * discount: $30 <-- hard coded value
-  * tax rate: $80,025
-  * total: $1050,025
+  * tax rate: $80.025
+  * total: $1050.025
 
 ## slice 8 - when the price is >= $1000 we have 3% of discount
 
@@ -126,8 +126,8 @@
 
   * price: $1100
   * discount: $33
-  * tax: $66,6875
-  * total: $1133,6875
+  * tax: $66.6875
+  * total: $1133.6875
 
 ## slice 9 - when the price is >= $5000, discount is not 3%, but 5%
 
@@ -139,7 +139,7 @@
 
   * price: $5250
   * discount: $262.5
-  * tax: $199,5
+  * tax: $199.5
   * total: $5187
 
 ## slice 10 - 5 states 5 discounts
@@ -152,8 +152,8 @@
 
   * price: $603120
   * discount: $90468
-  * tax: $41012,16
-  * total: $553664,16
+  * tax: $41012.16
+  * total: $553664.16
 
   ## NOTES AND TODO
 

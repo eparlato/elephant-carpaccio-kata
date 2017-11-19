@@ -8,6 +8,10 @@ describe('When I process an order', function () {
     var orderProcessor = new OrderProcessor(priceCalculator, taxCalculator, discountCalculator);
     var total_price;
 
+    beforeEach(function() {
+        total_price = 0;
+    });
+
     it('the total price is $0 if there are no items', function () {
 
         input = {
@@ -117,6 +121,17 @@ describe('When I process an order', function () {
 
         input.state_code = 'CA';
         expect(orderProcessor.process(input)).toEqual('$108.25');
-        
+    });
+
+    it('the discount is $30 if we spend $1000', function() {
+        input = {
+            tot_items: 2,
+            price_per_item: 500,
+            state_code: ''
+        };
+
+        total_price = orderProcessor.process(input);
+
+        expect(total_price).toEqual('$970');
     });
 });
