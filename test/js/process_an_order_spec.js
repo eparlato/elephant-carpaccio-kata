@@ -3,7 +3,7 @@ describe('When I process an order', function () {
 
     var priceCalculator = new PriceCalculator();
     var taxCalculator = new TaxCalculator();
-    var discountCalculator = new DiscountCalculator();
+    var discountCalculator = new DiscountCalculatorNoDiscountStub();
     var input;
     var orderProcessor = new OrderProcessor(priceCalculator, taxCalculator, discountCalculator);
     var total_price;
@@ -123,15 +123,33 @@ describe('When I process an order', function () {
         expect(orderProcessor.process(input)).toEqual('$108.25');
     });
 
-    it('the discount is $30 if we spend $1000', function() {
+    it('the discount is $30 if we spend $1000 - slice 7', function() {
         input = {
             tot_items: 2,
             price_per_item: 500,
             state_code: ''
         };
 
+        discountCalculator = new DiscountCalculator();
+        orderProcessor = new OrderProcessor(priceCalculator, taxCalculator, discountCalculator);
+
         total_price = orderProcessor.process(input);
 
         expect(total_price).toEqual('$970');
+    });
+
+    it('the total price is $1133.6875 if we buy for $1100 in TX (3% discount) - slice 8', function() {
+        input = {
+            tot_items: 2,
+            price_per_item: 550,
+            state_code: 'TX'
+        };
+
+        discountCalculator = new DiscountCalculator();
+        orderProcessor = new OrderProcessor(priceCalculator, taxCalculator, discountCalculator);
+
+        total_price = orderProcessor.process(input);
+        
+        expect(total_price).toEqual('$1133.6875');
     });
 });
