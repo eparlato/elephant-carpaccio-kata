@@ -155,13 +155,13 @@
   * tax: $41012.16
   * total: $553664.16
 
-  ## NOTES AND TODO
+## NOTES AND TODO
 
-  * what if a parameter is missing (ex. tot_items === undefined)?
-  * test for slice 3 adds no real value;
-  * slice 4 should simply decrease $137 as tax value from total price. Another slice should make the equation 6.85% == $137;
-  * slice 4 modified: if the state code is UT the tax value is 137, if the state code is empty, that value must be zero;
-  * a slice is not always equal to a test. In a slice I implement a certain behaviour, I could need more tests to do it
-   For example I want to introduce a fixed tax value of 137 whatever the state code is, but I can write my test saying that I get 137 ony if the state code is UT. That is because I know that I will get different tax values from different state codes.
-     * or maybe I just need to think to a better slice. I'm not sure now, I probably need more feedback.
-  * after slice 5 another slice should have the same state_code (NV) and the same tot_items (2) but different price_per_item, in order to have a different total_price. That would force me to write the code to calculate the tax value as a percentage of the total_price.
+* what if a parameter is missing (ex. tot_items === undefined)?
+* test for slice 3 adds no real value;
+* slice 4 should simply decrease $137 as tax value from total price. Another slice should make the equation 6.85% == $137;
+* slice 4 modified: if the state code is UT the tax value is 137, if the state code is empty, that value must be zero;
+* a slice is not always equal to a test. In a slice I implement a certain behaviour, I could need more tests to do it
+For example I want to introduce a fixed tax value of 137 whatever the state code is, but I can write my test saying that I get 137 ony if the state code is UT. That is because I know that I will get different tax values from different state codes.
+ * or maybe I just need to think to a better slice. I'm not sure now, I probably need more feedback.
+* after slice 5 another slice should have the same state_code (NV) and the same tot_items (2) but different price_per_item, in order to have a different total_price. That would force me to write the code to calculate the tax value as a percentage of the total_price.
